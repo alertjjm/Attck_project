@@ -1,0 +1,532 @@
+{
+	"T1003": {
+		"count": 36,
+		"mitigation": [
+			"Active Directory Configuration: Manage the access control list for \"Replicating Directory Changes\" and other permissions associated with domain controller replication.[20][21]",
+			"Credential Access Protection: With Windows 10, Microsoft implemented new protections called Credential Guard to protect the LSA secrets that can be used to obtain credentials through forms of credential dumping. It is not configured by default and has hardware and firmware system requirements. It also does not protect against all forms of credential dumping.[18][19]",
+			"Operating System Configuration: Consider disabling or restricting NTLM.[23]",
+			"Password Policies: Ensure that local administrator accounts have complex, unique passwords across all systems on the network.",
+			"Privileged Account Management: Windows:Do not put user or admin domain accounts in the local administrator groups across systems unless they are tightly controlled, as this is often equivalent to having a local administrator account with the same password on all systems. Follow best practices for design and administration of an enterprise network to limit privileged account use across administrative tiers.",
+			"Privileged Process Integrity: On Windows 8.1 and Windows Server 2012 R2, enable Protected Process Light for LSA.[22]",
+			"User Training: Limit credential overlap across accounts and systems by training users and administrators not to use the same password for multiple accounts."
+		]
+	},
+	"T1001": {
+		"count": 2,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate some obfuscation activity at the network level."
+		]
+	},
+	"T1190": {
+		"count": 3,
+		"mitigation": [
+			"Application Isolation and Sandboxing: Application isolation will limit what other processes and system features the exploited target can access.",
+			"Exploit Protection: Web Application Firewalls may be used to limit exposure of applications to prevent exploit traffic from reaching the application.",
+			"Network Segmentation: Segment externally facing servers and services from the rest of the network with a DMZ or on separate hosting infrastructure.",
+			"Privileged Account Management: Use least privilege for service accounts will limit what permissions the exploited process gets on the rest of the system.",
+			"Update Software: Regularly scan externally facing systems for vulnerabilities and establish procedures to rapidly patch systems when critical vulnerabilities are discovered through scanning and through public disclosure.",
+			"Vulnerability Scanning: Regularly scan externally facing systems for vulnerabilities and establish procedures to rapidly patch systems when critical vulnerabilities are discovered through scanning and through public disclosure."
+		]
+	},
+	"T1087": {
+		"count": 12,
+		"mitigation": [
+			"Operating System Configuration: Prevent administrator accounts from being enumerated when an application is elevating through UAC since it can lead to the disclosure of account names. The Registry key is located HKLM\\ SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\CredUI\\EnumerateAdministrators. It can be disabled through GPO: Computer Configuration > [Policies] > Administrative Templates > Windows Components > Credential User Interface: E numerate administrator accounts on elevation.[7]"
+		]
+	},
+	"T1059": {
+		"count": 32,
+		"mitigation": [
+			"Execution Prevention: Audit and/or block unnecessary command-line interpreters by using application whitelisting tools, like Windows Defender Application Control, AppLocker, or Software Restriction Policies where appropriate.[2][3][4][5][6][7]"
+		]
+	},
+	"T1002": {
+		"count": 22,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion prevention or data loss prevention tools may be set to block specific file types from leaving the network over unencrypted channels. An adversary may move to an encrypted channel or use other mechanisms of encapsulating the traffic in these situations."
+		]
+	},
+	"T1213": {
+		"count": 2,
+		"mitigation": [
+			"Audit: Consider periodic review of accounts and privileges for critical and sensitive repositories.",
+			"User Account Management: Enforce the principle of least-privilege. Consider implementing access control mechanisms that include both authentication and authorization.",
+			"User Training: Develop and publish policies that define acceptable information to be stored in repositories."
+		]
+	},
+	"T1041": {
+		"count": 8,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level. Signatures are often for unique indicators within protocols and may be based on the specific obfuscation technique used by a particular adversary or tool, and will likely be different across various malware families and versions. Adversaries will likely change tool command and control signatures over time or construct protocols in such a way to avoid detection by common defensive tools.[1]"
+		]
+	},
+	"T1036": {
+		"count": 19,
+		"mitigation": [
+			"Code Signing: Require signed binaries.",
+			"Execution Prevention: Use tools that restrict program execution via whitelisting by attributes other than file name for common operating system utilities that are needed.",
+			"Restrict File and Directory Permissions: Use file system access controls to protect folders such as C:\\Windows\\System32."
+		]
+	},
+	"T1064": {
+		"count": 41,
+		"mitigation": [
+			"Application Isolation and Sandboxing: Configure Office security settings enable Protected View, to execute within a sandbox environment, and to block macros through Group Policy. Other types of virtualization and application microsegmentation may also mitigate the impact of compromise.",
+			"Disable or Remove Feature or Program: Turn off unused features or restrict access to scripting engines such as VBScript or scriptable administration frameworks such as PowerShell."
+		]
+	},
+	"T1071": {
+		"count": 30,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level."
+		]
+	},
+	"T1203": {
+		"count": 18,
+		"mitigation": [
+			"Application Isolation and Sandboxing: Browser sandboxes can be used to mitigate some of the impact of exploitation, but sandbox escapes may still exist.",
+			"Exploit Protection: Security applications that look for behavior used during exploitation such as Windows Defender Exploit Guard (WDEG) and the Enhanced Mitigation Experience Toolkit (EMET) can be used to mitigate some exploitation behavior. Control flow integrity checking is another way to potentially identify and stop a software exploit from occurring. Many of these protections depend on the architecture and target application binary for compatibility.[1][2]"
+		]
+	},
+	"T1193": {
+		"count": 37,
+		"mitigation": [
+			"Antivirus/Antimalware: Anti-virus can also automatically quarantine suspicious files.",
+			"Network Intrusion Prevention: Network intrusion prevention systems and systems designed to scan and remove malicious email attachments can be used to block activity.",
+			"Restrict Web-Based Content: Block unknown or unused attachments by default that should not be transmitted over email as a best practice to prevent some vectors, such as .scr, .exe, .pif, .cpl, etc. Some email scanning devices can open and analyze compressed and encrypted formats, such as zip and rar that may be used to conceal malicious attachments in Obfuscated Files or Information.",
+			"User Training: Users can be trained to identify social engineering techniques and spearphishing emails."
+		]
+	},
+	"T1204": {
+		"count": 37,
+		"mitigation": [
+			"Execution Prevention: Application whitelisting may be able to prevent the running of executables masquerading as other files.",
+			"Network Intrusion Prevention: If a link is being visited by a user, network intrusion prevention systems and systems designed to scan and remove malicious downloads can be used to block activity.",
+			"Restrict Web-Based Content: If a link is being visited by a user, block unknown or unused files in transit by default that should not be downloaded or by policy from suspicious sites as a best practice to prevent some vectors, such as .scr, .exe, .pif, .cpl, etc. Some download scanning devices can open and analyze compressed and encrypted formats, such as zip and rar that may be used to conceal malicious files in Obfuscated Files or Information.",
+			"User Training: Use user training as a way to bring awareness to common phishing and spearphishing techniques and how to raise suspicion for potentially malicious events."
+		]
+	},
+	"T1102": {
+		"count": 12,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level.",
+			"Restrict Web-Based Content: Web proxies can be used to enforce external network communication policy that prevents use of unauthorized external services."
+		]
+	},
+	"T1119": {
+		"count": 7,
+		"mitigation": [
+			"Encrypt Sensitive Information: Encryption and off-system storage of sensitive information may be one way to mitigate collection of files, but may not stop an adversary from acquiring the information if an intrusion persists over a long period of time and the adversary is able to discover and access the data through other means. Strong passwords should be used on certain encrypted documents that use them to prevent offline cracking through Brute Force techniques.",
+			"Remote Data Storage: Encryption and off-system storage of sensitive information may be one way to mitigate collection of files, but may not stop an adversary from acquiring the information if an intrusion persists over a long period of time and the adversary is able to discover and access the data through other means."
+		]
+	},
+	"T1067": {
+		"count": 3,
+		"mitigation": [
+			"Boot Integrity: Use Trusted Platform Module technology and a secure or trusted boot process to prevent system integrity from being compromised.[3][4]",
+			"Privileged Account Management: Ensure proper permissions are in place to help prevent adversary access to privileged accounts necessary to install a bootkit."
+		]
+	},
+	"T1043": {
+		"count": 19,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level. Signatures are often for unique indicators within protocols and may be based on the specific protocol used by a particular adversary or tool, and will likely be different across various malware families and versions. Adversaries will likely change tool C2 signatures over time or construct protocols in such a way as to avoid detection by common defensive tools.[1]",
+			"Network Segmentation: Configure internal and external firewalls to block traffic using common ports that associate to network protocols that may be unnecessary for that particular network segment."
+		]
+	},
+	"T1092": {
+		"count": 1,
+		"mitigation": [
+			"Disable or Remove Feature or Program: Disable Autoruns if it is unnecessary.[1]",
+			"Operating System Configuration: Disallow or restrict removable media at an organizational policy level if they are not required for business operations."
+		]
+	},
+	"T1090": {
+		"count": 10,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level. Signatures are often for unique indicators within protocols and may be based on the specific C2 protocol used by a particular adversary or tool, and will likely be different across various malware families and versions. Adversaries will likely change tool C2 signatures over time or construct protocols in such a way as to avoid detection by common defensive tools.[2]"
+		]
+	},
+	"T1024": {
+		"count": 3,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level. Since the custom protocol used may not adhere to typical protocol standards, there may be opportunities to signature the traffic on a network level for detection. Signatures are often for unique indicators within protocols and may be based on the specific protocol used by a particular adversary or tool, and will likely be different across various malware families and versions. Adversaries will likely change tool C2 signatures over time or construct protocols in such a way as to avoid detection by common defensive tools."
+		]
+	},
+	"T1211": {
+		"count": 1,
+		"mitigation": [
+			"Application Isolation and Sandboxing: Make it difficult for adversaries to advance their operation through exploitation of undiscovered or unpatched vulnerabilities by using sandboxing. Other types of virtualization and application microsegmentation may also mitigate the impact of some types of exploitation. Risks of additional exploits and weaknesses in these systems may still exist.[3]",
+			"Exploit Protection: Security applications that look for behavior used during exploitation such as Windows Defender Exploit Guard (WDEG) and the Enhanced Mitigation Experience Toolkit (EMET) can be used to mitigate some exploitation behavior. Control flow integrity checking is another way to potentially identify and stop a software exploit from occurring. Many of these protections depend on the architecture and target application binary for compatibility and may not work for software targeted for defense evasion.[1][2]",
+			"Threat Intelligence Program: Develop a robust cyber threat intelligence capability to determine what types and levels of threat may use software exploits and 0-days against a particular organization.",
+			"Update Software: Update software regularly by employing patch management for internal enterprise endpoints and servers."
+		]
+	},
+	"T1068": {
+		"count": 8,
+		"mitigation": [
+			"Application Isolation and Sandboxing: Make it difficult for adversaries to advance their operation through exploitation of undiscovered or unpatched vulnerabilities by using sandboxing. Other types of virtualization and application microsegmentation may also mitigate the impact of some types of exploitation. Risks of additional exploits and weaknesses in these systems may still exist.[3]",
+			"Exploit Protection: Security applications that look for behavior used during exploitation such as Windows Defender Exploit Guard (WDEG) and the Enhanced Mitigation Experience Toolkit (EMET) can be used to mitigate some exploitation behavior. Control flow integrity checking is another way to potentially identify and stop a software exploit from occurring. Many of these protections depend on the architecture and target application binary for compatibility and may not work for software components targeted for privilege escalation.[1][2]",
+			"Threat Intelligence Program: Develop a robust cyber threat intelligence capability to determine what types and levels of threat may use software exploits and 0-days against a particular organization.",
+			"Update Software: Update software regularly by employing patch management for internal enterprise endpoints and servers."
+		]
+	},
+	"T1210": {
+		"count": 2,
+		"mitigation": [
+			"Application Isolation and Sandboxing: Make it difficult for adversaries to advance their operation through exploitation of undiscovered or unpatched vulnerabilities by using sandboxing. Other types of virtualization and application microsegmentation may also mitigate the impact of some types of exploitation. Risks of additional exploits and weaknesses in these systems may still exist.[7]",
+			"Disable or Remove Feature or Program: Minimize available services to only those that are necessary.",
+			"Exploit Protection: Security applications that look for behavior used during exploitation such as Windows Defender Exploit Guard (WDEG) and the Enhanced Mitigation Experience Toolkit (EMET) can be used to mitigate some exploitation behavior. Control flow integrity checking is another way to potentially identify and stop a software exploit from occurring. Many of these protections depend on the architecture and target application binary for compatibility and may not work for all software or services targeted.[5][6]",
+			"Network Segmentation: Segment networks and systems appropriately to reduce access to critical systems and services to controlled methods.",
+			"Privileged Account Management: Minimize permissions and access for service accounts to limit impact of exploitation.",
+			"Threat Intelligence Program: Develop a robust cyber threat intelligence capability to determine what types and levels of threat may use software exploits and 0-days against a particular organization.",
+			"Update Software: Update software regularly by employing patch management for internal enterprise endpoints and servers.",
+			"Vulnerability Scanning: Regularly scan the internal network for available services to identify new and potentially vulnerable services."
+		]
+	},
+	"T1070": {
+		"count": 8,
+		"mitigation": [
+			"Encrypt Sensitive Information: Obfuscate/encrypt event files locally and in transit to avoid giving feedback to an adversary.",
+			"Remote Data Storage: Automatically forward events to a log server or data repository to prevent conditions in which the adversary can locate and manipulate data on the local system. When possible, minimize time delay on event reporting to avoid prolonged storage on the local system.",
+			"Restrict File and Directory Permissions: Protect generated event files that are stored locally with proper permissions and authentication and limit opportunities for adversaries to increase privileges by preventing Privilege Escalation opportunities."
+		]
+	},
+	"T1040": {
+		"count": 3,
+		"mitigation": [
+			"Encrypt Sensitive Information: Ensure that all wired and/or wireless traffic is encrypted appropriately. Use best practices for authentication protocols, such as Kerberos, and ensure web traffic that may contain credentials is protected by SSL/TLS.",
+			"Multi-factor Authentication: Use multi-factor authentication wherever possible."
+		]
+	},
+	"T1027": {
+		"count": 36,
+		"mitigation": [
+			"Antivirus/Antimalware: Consider utilizing the Antimalware Scan Interface (AMSI) on Windows 10 to analyze commands after being processed/interpreted."
+		]
+	},
+	"T1105": {
+		"count": 30,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware or unusual data transfer over known tools and protocols like FTP can be used to mitigate activity at the network level. Signatures are often for unique indicators within protocols and may be based on the specific obfuscation technique used by a particular adversary or tool, and will likely be different across various malware families and versions. Adversaries will likely change tool C2 signatures over time or construct protocols in such a way as to avoid detection by common defensive tools.[1]"
+		]
+	},
+	"T1192": {
+		"count": 20,
+		"mitigation": [
+			"Restrict Web-Based Content: Determine if certain websites that can be used for spearphishing are necessary for business operations and consider blocking access if activity cannot be monitored well or if it poses a significant risk.",
+			"User Training: Users can be trained to identify social engineering techniques and spearphishing emails with malicious links."
+		]
+	},
+	"T1199": {
+		"count": 2,
+		"mitigation": [
+			"Network Segmentation: Network segmentation can be used to isolate infrastructure components that do not require broad network access.",
+			"User Account Control: Properly manage accounts and permissions used by parties in trusted relationships to minimize potential abuse by the party and if the party is compromised by an adversary."
+		]
+	},
+	"T1078": {
+		"count": 25,
+		"mitigation": [
+			"Application Developer Guidance: Ensure that applications do not store sensitive data or credentials insecurely. (e.g. plaintext credentials in code, published credentials in repositories, or credentials in public cloud storage).",
+			"Audit: Routinely audit source code, application configuration files, open repositories, and public cloud storage for insecure use and storage of credentials.",
+			"Filter Network Traffic: Cloud service providers support IP-based restrictions when accessing cloud resources. Consider using IP whitelisting on cloud-based systems along with user account management to ensure that data access is restricted not only to valid users but only from expected IP ranges to mitigate the use of stolen credentials to access data.",
+			"Multi-factor Authentication: Integrating multi-factor authentication (MFA) as part of organizational policy can greatly reduce the risk of an adversary gaining control of valid credentials that may be used for additional tactics such as initial access, lateral movement, and collecting information. MFA can also be used to restrict access to cloud resources and APIs.",
+			"Password Policies: Applications and appliances that utilize default username and password should be changed immediately after the installation, and before deployment to a production environment. When possible, applications that use SSH keys should be updated periodically and properly secured. Ensure that local administrator accounts have complex, unique passwords across all systems on the network.",
+			"Privileged Account Management: Audit domain and local accounts as well as their permission levels routinely to look for situations that could allow an adversary to gain wide access by obtaining credentials of a privileged account. These audits should also include if default accounts have been enabled, or if new local accounts are created that have not be authorized. Do not put user or admin domain accounts in the local administrator groups across systems unless they are tightly controlled and use of accounts is segmented, as this is often equivalent to having a local administrator account with the same password on all systems. Follow best practices for design and administration of an enterprise network to limit privileged account use across administrative tiers. Limit credential overlap across systems to prevent access if account credentials are obtained.[3][4][5]",
+			"User Account Management: Ensure users and user groups have appropriate permissions for their roles through Identity and Access Management (IAM) controls. Configure user permissions, groups, and roles for access to cloud-based systems as well. Implement strict IAM controls to prevent access to systems except for the applications, users, and services that require access. Consider using temporary credentials that are only good for a certain period of time in cloud environments to reduce the effectiveness of compromised accounts."
+		]
+	},
+	"T1089": {
+		"count": 9,
+		"mitigation": [
+			"Restrict File and Directory Permissions: Ensure proper process, Registry, and file permissions are in place to prevent adversaries from disabling or interfering with security services.",
+			"User Account Management: Ensure proper user permissions are in place to prevent adversaries from disabling or interfering with security services."
+		]
+	},
+	"T1219": {
+		"count": 5,
+		"mitigation": [
+			"Execution Prevention: Use application whitelisting to mitigate installation and use of unapproved software that can be used for remote access.",
+			"Filter Network Traffic: Properly configure firewalls, application firewalls, and proxies to limit outgoing traffic to sites and services used by remote access tools.",
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures may be able to prevent traffic to remote access services."
+		]
+	},
+	"T1100": {
+		"count": 9,
+		"mitigation": [
+			"Privileged Account Management: Audit account and group permissions to ensure that accounts used to manage servers do not overlap with accounts and permissions of users in the internal network that could be acquired through Credential Access and used to log into the Web server and plant a Web shell or pivot from the Web server into the internal network.[2]",
+			"Update Software: Ensure that externally facing Web servers are patched regularly to prevent adversary access through Exploitation for Privilege Escalation to gain remote code access or through file inclusion weaknesses that may allow adversaries to upload files or scripts that are automatically served as Web pages."
+		]
+	},
+	"T1110": {
+		"count": 8,
+		"mitigation": [
+			"Account Use Policies: Set account lockout policies after a certain number of failed login attempts to prevent passwords from being guessed. Too strict a policy may create a denial of service condition and render environments un-usable, with all accounts used in the brute force being locked-out.",
+			"Multi-factor Authentication: Use multi-factor authentication. Where possible, also enable multi-factor authentication on externally facing services.",
+			"Password Policies: Refer to NIST guidelines when creating password policies.[5]"
+		]
+	},
+	"T1081": {
+		"count": 7,
+		"mitigation": [
+			"Active Directory Configuration: Remove vulnerable Group Policy Preferences.[4]",
+			"Audit: Preemptively search for files containing passwords and take actions to reduce the exposure risk when found.",
+			"Password Policies: Establish an organizational policy that prohibits password storage in files.",
+			"Restrict File and Directory Permissions: Restrict file shares to specific directories with access only to necessary users.",
+			"User Training: Ensure that developers and system administrators are aware of the risk associated with having plaintext passwords in software configuration files that may be left on endpoint systems or servers."
+		]
+	},
+	"T1048": {
+		"count": 6,
+		"mitigation": [
+			"Filter Network Traffic: Enforce proxies and use dedicated servers for services such as DNS and only allow those systems to communicate over respective ports/protocols, instead of all systems within a network.",
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary command and control infrastructure and malware can be used to mitigate activity at the network level.",
+			"Network Segmentation: Follow best practices for network firewall configurations to allow only necessary ports and traffic to enter and exit the network.[2]"
+		]
+	},
+	"T1055": {
+		"count": 12,
+		"mitigation": [
+			"Behavior Prevention on Endpoint: Some endpoint security solutions can be configured to block some types of process injection based on common sequences of behavior that occur during the injection process.",
+			"Privileged Account Management: Utilize Yama to mitigate ptrace based process injection by restricting the use of ptrace to privileged users only. Other mitigation controls involve the deployment of security kernel modules that provide advanced access control and process restrictions such as SELinux, grsecurity, and AppArmor."
+		]
+	},
+	"T1189": {
+		"count": 14,
+		"mitigation": [
+			"Application Isolation and Sandboxing: Browser sandboxes can be used to mitigate some of the impact of exploitation, but sandbox escapes may still exist.",
+			"Exploit Protection: Security applications that look for behavior used during exploitation such as Windows Defender Exploit Guard (WDEG) and the Enhanced Mitigation Experience Toolkit (EMET) can be used to mitigate some exploitation behavior. Control flow integrity checking is another way to potentially identify and stop a software exploit from occurring. Many of these protections depend on the architecture and target application binary for compatibility.[5][6]",
+			"Restrict Web-Based Content: For malicious code served up through ads, adblockers can help prevent that code from executing in the first place.",
+			"Update Software: Ensure all browsers and plugins kept updated can help prevent the exploit phase of this technique. Use modern browsers with security features turned on."
+		]
+	},
+	"T1032": {
+		"count": 11,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level.",
+			"SSL/TLS Inspection: SSL/TLS inspection can be used to see the contents of encrypted sessions to look for network-based indicators of malware communication protocols."
+		]
+	},
+	"T1172": {
+		"count": 1,
+		"mitigation": [
+			"Execution Prevention: In order to use domain fronting, adversaries may need to deploy additional tools to compromised systems. It is possible to prevent the installation of these tools with application whitelisting.",
+			"SSL/TLS Inspection: If it is possible to inspect HTTPS traffic, the captures can be analyzed for connections that appear to be Domain Fronting."
+		]
+	},
+	"T1188": {
+		"count": 2,
+		"mitigation": [
+			"Filter Network Traffic: Traffic to known anonymity networks and C2 infrastructure can be blocked through the use of network black and white lists. It should be noted that this kind of blocking may be circumvented by other techniques like Domain Fronting."
+		]
+	},
+	"T1095": {
+		"count": 3,
+		"mitigation": [
+			"Filter Network Traffic: Filter network traffic to prevent use of protocols across the network boundary that are unnecessary.",
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level.",
+			"Network Segmentation: Properly configure firewalls and proxies to limit outgoing traffic to only necessary ports and through proper network gateway systems. Also ensure hosts are only provisioned to communicate over authorized interfaces."
+		]
+	},
+	"T1480": {
+		"count": 2,
+		"mitigation": [
+			"Do Not Mitigate: Execution Guardrails likely should not be mitigated with preventative controls because it may protect unintended targets from being compromised. If targeted, efforts should be focused on preventing adversary tools from running earlier in the chain of activity and on identifying subsequent malicious behavior if compromised."
+		]
+	},
+	"T1136": {
+		"count": 5,
+		"mitigation": [
+			"Multi-factor Authentication: Use multi-factor authentication for user and privileged accounts.",
+			"Network Segmentation: Configure access controls and firewalls to limit access to domain controllers and systems used to create and manage accounts.",
+			"Operating System Configuration: Protect domain controllers by ensuring proper security configuration for critical servers.",
+			"Privileged Account Management: Do not allow domain administrator accounts to be used for day-to-day operations that may expose them to potential adversaries on unprivileged systems."
+		]
+	},
+	"T1104": {
+		"count": 2,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level."
+		]
+	},
+	"T1108": {
+		"count": 7,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level. Signatures are often for unique indicators within protocols and will be different across various malware families and versions. Adversaries will likely change tool signatures over time or construct protocols in such a way as to avoid detection by common defensive tools.[2]"
+		]
+	},
+	"T1065": {
+		"count": 8,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level.",
+			"Network Segmentation: Properly configure firewalls and proxies to limit outgoing traffic to only necessary ports for that particular network segment."
+		]
+	},
+	"T1030": {
+		"count": 1,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary command and control infrastructure and malware can be used to mitigate activity at the network level."
+		]
+	},
+	"T1046": {
+		"count": 11,
+		"mitigation": [
+			"Disable or Remove Feature or Program: Ensure that unnecessary ports and services are closed to prevent risk of discovery and potential exploitation.",
+			"Network Intrusion Prevention: Use network intrusion detection/prevention systems to detect and prevent remote service scans.",
+			"Network Segmentation: Ensure proper network segmentation is followed to protect critical servers and devices."
+		]
+	},
+	"T1072": {
+		"count": 1,
+		"mitigation": [
+			"Active Directory Configuration: Ensure proper system and access isolation for critical network systems through use of group policy.",
+			"Multi-factor Authentication: Ensure proper system and access isolation for critical network systems through use of multi-factor authentication.",
+			"Network Segmentation: Ensure proper system isolation for critical network systems through use of firewalls.",
+			"Password Policies: Verify that account credentials that may be used to access deployment systems are unique and not used throughout the enterprise network.",
+			"Privileged Account Management: Grant access to application deployment systems only to a limited number of authorized administrators.",
+			"Remote Data Storage: If the application deployment system can be configured to deploy only signed binaries, then ensure that the trusted signing certificates are not co-located with the application deployment system and are instead located on a system that cannot be accessed remotely or to which remote access is tightly controlled.",
+			"Update Software: Patch deployment systems regularly to prevent potential remote access through Exploitation for Privilege Escalation.",
+			"User Account Management: Ensure that any accounts used by third-party providers to access these systems are traceable to the third-party and are not used throughout the network or used by other third-party providers in the same environment. Ensure there are regular reviews of accounts provisioned to these systems to verify continued business need, and ensure there is governance to trace de-provisioning of access that is no longer required. Ensure proper system and access isolation for critical network systems through use of account privilege separation.",
+			"User Training: Have a strict approval policy for use of deployment systems."
+		]
+	},
+	"T1485": {
+		"count": 2,
+		"mitigation": [
+			"Data Backup: Consider implementing IT disaster recovery plans that contain procedures for taking regular data backups that can be used to restore organizational data. Ensure backups are stored off system and is protected from common methods adversaries may use to gain access and destroy the backups to prevent recovery."
+		]
+	},
+	"T1132": {
+		"count": 5,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level. Signatures are often for unique indicators within protocols and may be based on the specific obfuscation technique used by a particular adversary or tool, and will likely be different across various malware families and versions. Adversaries will likely change tool C2 signatures over time or construct protocols in such a way as to avoid detection by common defensive tools."
+		]
+	},
+	"T1488": {
+		"count": 1,
+		"mitigation": [
+			"Data Backup: Consider implementing IT disaster recovery plans that contain procedures for taking regular data backups that can be used to restore organizational data. Ensure backups are stored off system and is protected from common methods adversaries may use to gain access and destroy the backups to prevent recovery."
+		]
+	},
+	"T1487": {
+		"count": 3,
+		"mitigation": [
+			"Data Backup: Consider implementing IT disaster recovery plans that contain procedures for taking regular data backups that can be used to restore organizational data. Ensure backups are stored off system and is protected from common methods adversaries may use to gain access and destroy the backups to prevent recovery."
+		]
+	},
+	"T1008": {
+		"count": 3,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level. Signatures are often for unique indicators within protocols and may be based on the specific protocol used by a particular adversary or tool, and will likely be different across various malware families and versions. Adversaries will likely change tool C2 signatures over time or construct protocols in such a way as to avoid detection by common defensive tools.[1]"
+		]
+	},
+	"T1026": {
+		"count": 1,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level. Signatures are often for unique indicators within protocols and may be based on the specific protocol used by a particular adversary or tool, and will likely be different across various malware families and versions. Adversaries will likely change tool C2 signatures over time or construct protocols in such a way as to avoid detection by common defensive tools.[1]"
+		]
+	},
+	"T1021": {
+		"count": 6,
+		"mitigation": [
+			"Multi-factor Authentication: Use multi-factor authentication on remote service logons where possible.",
+			"User Account Management: Limit the accounts that may use remote services. Limit the permissions for accounts that are at higher risk of compromise; for example, configure SSH so users can only run specific programs."
+		]
+	},
+	"T1194": {
+		"count": 4,
+		"mitigation": [
+			"Antivirus/Antimalware: Anti-virus can also automatically quarantine suspicious files.",
+			"Restrict Web-Based Content: Determine if certain social media sites, personal webmail services, or other service that can be used for spearphishing is necessary for business operations and consider blocking access if activity cannot be monitored well or if it poses a significant risk.",
+			"User Training: Users can be trained to identify social engineering techniques and spearphishing emails with malicious links."
+		]
+	},
+	"T1094": {
+		"count": 4,
+		"mitigation": [
+			"Filter Network Traffic: Filter network traffic to look for unusual or non-standard protocols.",
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level. Signatures are often for unique indicators within protocols and may be based on the specific protocol used by a particular adversary or tool, and will likely be different across various malware families and versions. Adversaries will likely change tool C2 signatures over time or construct protocols in such a way as to avoid detection by common defensive tools.[1]",
+			"Network Segmentation: Properly configure firewalls and proxies to limit outgoing traffic to only necessary ports and through proper network gateway systems. Also ensure hosts are only provisioned to communicate over authorized interfaces."
+		]
+	},
+	"T1201": {
+		"count": 1,
+		"mitigation": [
+			"Password Policies: Ensure only valid password filters are registered. Filter DLLs must be present in Windows installation directory (C:\\Windows\\System32\\ by default) of a domain controller and/or local computer with a corresponding entry in HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\Notification Packages.[3]"
+		]
+	},
+	"T1017": {
+		"count": 1,
+		"mitigation": [
+			"Code Signing: If the application deployment system can be configured to deploy only signed binaries, then ensure that the trusted signing certificates are not co-located with the application deployment system and are instead located on a system that cannot be accessed remotely or to which remote access is tightly controlled.",
+			"Multi-factor Authentication: Use multi-factor authentication for accounts used with application deployment software.",
+			"Network Segmentation: Ensure proper system and access isolation for critical network systems through use of firewalls, account privilege separation, group policy, and multi-factor authentication.",
+			"Privileged Account Management: Grant access to application deployment systems only to a limited number of authorized administrators. Verify that account credentials that may be used to access deployment systems are unique and not used throughout the enterprise network.",
+			"Update Software: Patch deployment systems regularly to prevent potential remote access through Exploitation for Privilege Escalation."
+		]
+	},
+	"T1195": {
+		"count": 2,
+		"mitigation": [
+			"Update Software: A patch management process should be implemented to check unused dependencies, unmaintained and/or previously vulnerable dependencies, unnecessary features, components, files, and documentation.",
+			"Vulnerability Scanning: Continuous monitoring of vulnerability sources and the use of automatic and manual code review tools should also be implemented as well."
+		]
+	},
+	"T1503": {
+		"count": 3,
+		"mitigation": [
+			"Password Policies: Organizations may consider weighing the risk of storing credentials in web browsers. If web browser credential disclosure is a significant concern, technical controls, policy, and user training may be used to prevent storage of credentials in web browsers."
+		]
+	},
+	"T1486": {
+		"count": 3,
+		"mitigation": [
+			"Data Backup: Consider implementing IT disaster recovery plans that contain procedures for regularly taking and testing data backups that can be used to restore organizational data. Ensure backups are stored off system and is protected from common methods adversaries may use to gain access and destroy the backups to prevent recovery."
+		]
+	},
+	"T1494": {
+		"count": 1,
+		"mitigation": [
+			"Network Segmentation: Identify critical business and system processes that may be targeted by adversaries and work to isolate and secure those systems against unauthorized access and tampering.",
+			"Restrict File and Directory Permissions: Prevent critical business and system processes from being replaced, overwritten, or reconfigured to load potentially malicious code."
+		]
+	},
+	"T1492": {
+		"count": 2,
+		"mitigation": [
+			"Encrypt Sensitive Information: Consider encrypting important information to reduce an adversaries ability to perform tailored data modifications.",
+			"Remote Data Storage: Consider implementing IT disaster recovery plans that contain procedures for taking regular data backups that can be used to restore organizational data. Ensure backups are stored off system and is protected from common methods adversaries may use to gain access and manipulate backups.[3]",
+			"Restrict File and Directory Permissions: Ensure least privilege principles are applied to important information resources to reduce exposure to data manipulation risk."
+		]
+	},
+	"T1493": {
+		"count": 1,
+		"mitigation": [
+			"Encrypt Sensitive Information: Encrypt all important data flows to reduce the impact of tailored modifications on data in transit."
+		]
+	},
+	"T1176": {
+		"count": 2,
+		"mitigation": [
+			"Audit: Ensure extensions that are installed are the intended ones as many malicious extensions will masquerade as legitimate ones.",
+			"Execution Prevention: Set a browser extension white or black list as appropriate for your security policy.[10]",
+			"Limit Software Installation: Only install browser extensions from trusted sources that can be verified. Browser extensions for some browsers can be controlled through Group Policy. Change settings to prevent the browser from installing extensions without sufficient permissions.",
+			"User Training: Close out all browser sessions when finished using them to prevent any potentially malicious extensions from continuing to run."
+		]
+	},
+	"T1146": {
+		"count": 1,
+		"mitigation": [
+			"Environment Variable Permissions: Making the associated environment variables read only can make sure that the history is preserved.[1]",
+			"Restrict File and Directory Permissions: Preventing users from deleting or writing to certain files can stop adversaries from maliciously altering their ~/.bash_history files."
+		]
+	},
+	"T1483": {
+		"count": 1,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level. Malware researchers can reverse engineer malware variants that use DGAs and determine future domains that the malware will attempt to contact, but this is a time and resource intensive effort. Malware is also increasingly incorporating seed values that can be unique for each instance, which would then need to be determined to extract future generated domains. In some cases, the seed that a particular sample uses can be extracted from DNS traffic. Even so, there can be thousands of possible domains generated per day; this makes it impractical for defenders to preemptively register all possible C2 domains due to the cost.[1][8][5]",
+			"Restrict Web-Based Content: In some cases a local DNS sinkhole may be used to help prevent DGA-based command and control at a reduced cost."
+		]
+	}
+}
