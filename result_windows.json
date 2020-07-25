@@ -1,14 +1,6 @@
 {
-	"T1015": {
-		"count": 5,
-		"mitigation": [
-			"Execution Prevention: Adversaries can replace accessibility features binaries with alternate binaries to execute this technique. Identify and block potentially malicious software executed through accessibility features functionality by using application whitelisting tools, like Windows Defender Application Control, AppLocker, or Software Restriction Policies where appropriate.[6][7][8][9][10][11]",
-			"Limit Access to Resource Over Network: If possible, use a Remote Desktop Gateway to manage connections and security configuration of RDP within a network.[5]",
-			"Operating System Configuration: To use this technique remotely, an adversary must use it in conjunction with RDP. Ensure that Network Level Authentication is enabled to force the remote desktop session to authenticate before the session is created and the login screen displayed. It is enabled by default on Windows Vista and later.[4]"
-		]
-	},
 	"T1003": {
-		"count": 36,
+		"count": 35,
 		"mitigation": [
 			"Active Directory Configuration: Manage the access control list for \"Replicating Directory Changes\" and other permissions associated with domain controller replication.[20][21]",
 			"Credential Access Protection: With Windows 10, Microsoft implemented new protections called Credential Guard to protect the LSA secrets that can be used to obtain credentials through forms of credential dumping. It is not configured by default and has hardware and firmware system requirements. It also does not protect against all forms of credential dumping.[18][19]",
@@ -17,36 +9,6 @@
 			"Privileged Account Management: Windows:Do not put user or admin domain accounts in the local administrator groups across systems unless they are tightly controlled, as this is often equivalent to having a local administrator account with the same password on all systems. Follow best practices for design and administration of an enterprise network to limit privileged account use across administrative tiers.",
 			"Privileged Process Integrity: On Windows 8.1 and Windows Server 2012 R2, enable Protected Process Light for LSA.[22]",
 			"User Training: Limit credential overlap across accounts and systems by training users and administrators not to use the same password for multiple accounts."
-		]
-	},
-	"T1001": {
-		"count": 2,
-		"mitigation": [
-			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate some obfuscation activity at the network level."
-		]
-	},
-	"T1190": {
-		"count": 3,
-		"mitigation": [
-			"Application Isolation and Sandboxing: Application isolation will limit what other processes and system features the exploited target can access.",
-			"Exploit Protection: Web Application Firewalls may be used to limit exposure of applications to prevent exploit traffic from reaching the application.",
-			"Network Segmentation: Segment externally facing servers and services from the rest of the network with a DMZ or on separate hosting infrastructure.",
-			"Privileged Account Management: Use least privilege for service accounts will limit what permissions the exploited process gets on the rest of the system.",
-			"Update Software: Regularly scan externally facing systems for vulnerabilities and establish procedures to rapidly patch systems when critical vulnerabilities are discovered through scanning and through public disclosure.",
-			"Vulnerability Scanning: Regularly scan externally facing systems for vulnerabilities and establish procedures to rapidly patch systems when critical vulnerabilities are discovered through scanning and through public disclosure."
-		]
-	},
-	"T1076": {
-		"count": 17,
-		"mitigation": [
-			"Audit: Audit the Remote Desktop Users group membership regularly. Remove unnecessary accounts and groups from Remote Desktop Users groups",
-			"Disable or Remove Feature or Program: Disable the RDP service if it is unnecessary.",
-			"Limit Access to Resource Over Network: Use remote desktop gateways.",
-			"Multi-factor Authentication: Use multi-factor authentication for remote logins.[7]",
-			"Network Segmentation: Do not leave RDP accessible from the internet. Enable firewall rules to block RDP traffic between network security zones within a network.",
-			"Operating System Configuration: Change GPOs to define shorter timeouts sessions and maximum amount of time any single session can be active. Change GPOs to specify the maximum amount of time that a disconnected session stays active on the RD session host server.[6]",
-			"Privileged Account Management: Consider removing the local Administrators group from the list of groups allowed to log in through RDP.",
-			"User Account Management: Limit remote user permissions if remote access is necessary."
 		]
 	},
 	"T1087": {
@@ -197,6 +159,19 @@
 			"User Account Management: Do not allow a domain user to be in the local administrator group on multiple systems."
 		]
 	},
+	"T1076": {
+		"count": 16,
+		"mitigation": [
+			"Audit: Audit the Remote Desktop Users group membership regularly. Remove unnecessary accounts and groups from Remote Desktop Users groups",
+			"Disable or Remove Feature or Program: Disable the RDP service if it is unnecessary.",
+			"Limit Access to Resource Over Network: Use remote desktop gateways.",
+			"Multi-factor Authentication: Use multi-factor authentication for remote logins.[7]",
+			"Network Segmentation: Do not leave RDP accessible from the internet. Enable firewall rules to block RDP traffic between network security zones within a network.",
+			"Operating System Configuration: Change GPOs to define shorter timeouts sessions and maximum amount of time any single session can be active. Change GPOs to specify the maximum amount of time that a disconnected session stays active on the RD session host server.[6]",
+			"Privileged Account Management: Consider removing the local Administrators group from the list of groups allowed to log in through RDP.",
+			"User Account Management: Limit remote user permissions if remote access is necessary."
+		]
+	},
 	"T1134": {
 		"count": 3,
 		"mitigation": [
@@ -235,6 +210,12 @@
 		"count": 3,
 		"mitigation": [
 			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level. Since the custom protocol used may not adhere to typical protocol standards, there may be opportunities to signature the traffic on a network level for detection. Signatures are often for unique indicators within protocols and may be based on the specific protocol used by a particular adversary or tool, and will likely be different across various malware families and versions. Adversaries will likely change tool C2 signatures over time or construct protocols in such a way as to avoid detection by common defensive tools."
+		]
+	},
+	"T1001": {
+		"count": 1,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate some obfuscation activity at the network level."
 		]
 	},
 	"T1173": {
@@ -395,6 +376,14 @@
 			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures may be able to prevent traffic to remote access services."
 		]
 	},
+	"T1015": {
+		"count": 4,
+		"mitigation": [
+			"Execution Prevention: Adversaries can replace accessibility features binaries with alternate binaries to execute this technique. Identify and block potentially malicious software executed through accessibility features functionality by using application whitelisting tools, like Windows Defender Application Control, AppLocker, or Software Restriction Policies where appropriate.[6][7][8][9][10][11]",
+			"Limit Access to Resource Over Network: If possible, use a Remote Desktop Gateway to manage connections and security configuration of RDP within a network.[5]",
+			"Operating System Configuration: To use this technique remotely, an adversary must use it in conjunction with RDP. Ensure that Network Level Authentication is enabled to force the remote desktop session to authenticate before the session is created and the login screen displayed. It is enabled by default on Windows Vista and later.[4]"
+		]
+	},
 	"T1117": {
 		"count": 6,
 		"mitigation": [
@@ -503,6 +492,17 @@
 			"Execution Prevention: Identify potentially malicious software that may be used to taint content or may result from it and audit and/or block the unknown programs by using whitelisting tools, like AppLocker, or Software Restriction Policies where appropriate.",
 			"Exploit Protection: Use utilities that detect or mitigate common features used in exploitation, such as the Microsoft Enhanced Mitigation Experience Toolkit (EMET).",
 			"Restrict File and Directory Permissions: Protect shared folders by minimizing users who have write access."
+		]
+	},
+	"T1190": {
+		"count": 2,
+		"mitigation": [
+			"Application Isolation and Sandboxing: Application isolation will limit what other processes and system features the exploited target can access.",
+			"Exploit Protection: Web Application Firewalls may be used to limit exposure of applications to prevent exploit traffic from reaching the application.",
+			"Network Segmentation: Segment externally facing servers and services from the rest of the network with a DMZ or on separate hosting infrastructure.",
+			"Privileged Account Management: Use least privilege for service accounts will limit what permissions the exploited process gets on the rest of the system.",
+			"Update Software: Regularly scan externally facing systems for vulnerabilities and establish procedures to rapidly patch systems when critical vulnerabilities are discovered through scanning and through public disclosure.",
+			"Vulnerability Scanning: Regularly scan externally facing systems for vulnerabilities and establish procedures to rapidly patch systems when critical vulnerabilities are discovered through scanning and through public disclosure."
 		]
 	},
 	"T1045": {

@@ -1,4 +1,3 @@
-import os
 import json
 from collections import OrderedDict
 from selenium import webdriver
@@ -10,7 +9,7 @@ for i in jsonobj:
     j=1
     a={}
     li=[]
-    browser.get("https://attack.mitre.org/techniques/"+i+"/")
+    browser.get("https://attack.mitre.org/versions/v6/techniques/"+i+"/")
     platform=browser.find_element_by_xpath('//*[@id="v-attckmatrix"]/div[2]/div/div/div/div[1]/div[2]/div/div/div[3]').text
     if('Windows' not in platform):
         print(i+': it is not windows')

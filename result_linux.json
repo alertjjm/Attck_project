@@ -1,6 +1,6 @@
 {
 	"T1003": {
-		"count": 36,
+		"count": 35,
 		"mitigation": [
 			"Active Directory Configuration: Manage the access control list for \"Replicating Directory Changes\" and other permissions associated with domain controller replication.[20][21]",
 			"Credential Access Protection: With Windows 10, Microsoft implemented new protections called Credential Guard to protect the LSA secrets that can be used to obtain credentials through forms of credential dumping. It is not configured by default and has hardware and firmware system requirements. It also does not protect against all forms of credential dumping.[18][19]",
@@ -9,23 +9,6 @@
 			"Privileged Account Management: Windows:Do not put user or admin domain accounts in the local administrator groups across systems unless they are tightly controlled, as this is often equivalent to having a local administrator account with the same password on all systems. Follow best practices for design and administration of an enterprise network to limit privileged account use across administrative tiers.",
 			"Privileged Process Integrity: On Windows 8.1 and Windows Server 2012 R2, enable Protected Process Light for LSA.[22]",
 			"User Training: Limit credential overlap across accounts and systems by training users and administrators not to use the same password for multiple accounts."
-		]
-	},
-	"T1001": {
-		"count": 2,
-		"mitigation": [
-			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate some obfuscation activity at the network level."
-		]
-	},
-	"T1190": {
-		"count": 3,
-		"mitigation": [
-			"Application Isolation and Sandboxing: Application isolation will limit what other processes and system features the exploited target can access.",
-			"Exploit Protection: Web Application Firewalls may be used to limit exposure of applications to prevent exploit traffic from reaching the application.",
-			"Network Segmentation: Segment externally facing servers and services from the rest of the network with a DMZ or on separate hosting infrastructure.",
-			"Privileged Account Management: Use least privilege for service accounts will limit what permissions the exploited process gets on the rest of the system.",
-			"Update Software: Regularly scan externally facing systems for vulnerabilities and establish procedures to rapidly patch systems when critical vulnerabilities are discovered through scanning and through public disclosure.",
-			"Vulnerability Scanning: Regularly scan externally facing systems for vulnerabilities and establish procedures to rapidly patch systems when critical vulnerabilities are discovered through scanning and through public disclosure."
 		]
 	},
 	"T1087": {
@@ -151,6 +134,12 @@
 		"count": 3,
 		"mitigation": [
 			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level. Since the custom protocol used may not adhere to typical protocol standards, there may be opportunities to signature the traffic on a network level for detection. Signatures are often for unique indicators within protocols and may be based on the specific protocol used by a particular adversary or tool, and will likely be different across various malware families and versions. Adversaries will likely change tool C2 signatures over time or construct protocols in such a way as to avoid detection by common defensive tools."
+		]
+	},
+	"T1001": {
+		"count": 1,
+		"mitigation": [
+			"Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate some obfuscation activity at the network level."
 		]
 	},
 	"T1211": {
@@ -299,6 +288,17 @@
 			"Exploit Protection: Security applications that look for behavior used during exploitation such as Windows Defender Exploit Guard (WDEG) and the Enhanced Mitigation Experience Toolkit (EMET) can be used to mitigate some exploitation behavior. Control flow integrity checking is another way to potentially identify and stop a software exploit from occurring. Many of these protections depend on the architecture and target application binary for compatibility.[5][6]",
 			"Restrict Web-Based Content: For malicious code served up through ads, adblockers can help prevent that code from executing in the first place.",
 			"Update Software: Ensure all browsers and plugins kept updated can help prevent the exploit phase of this technique. Use modern browsers with security features turned on."
+		]
+	},
+	"T1190": {
+		"count": 2,
+		"mitigation": [
+			"Application Isolation and Sandboxing: Application isolation will limit what other processes and system features the exploited target can access.",
+			"Exploit Protection: Web Application Firewalls may be used to limit exposure of applications to prevent exploit traffic from reaching the application.",
+			"Network Segmentation: Segment externally facing servers and services from the rest of the network with a DMZ or on separate hosting infrastructure.",
+			"Privileged Account Management: Use least privilege for service accounts will limit what permissions the exploited process gets on the rest of the system.",
+			"Update Software: Regularly scan externally facing systems for vulnerabilities and establish procedures to rapidly patch systems when critical vulnerabilities are discovered through scanning and through public disclosure.",
+			"Vulnerability Scanning: Regularly scan externally facing systems for vulnerabilities and establish procedures to rapidly patch systems when critical vulnerabilities are discovered through scanning and through public disclosure."
 		]
 	},
 	"T1032": {
